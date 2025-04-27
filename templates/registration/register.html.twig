@@ -1,0 +1,79 @@
+{% extends 'guest.html.twig' %}
+
+{% block title %}Registrarse{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            {% for flash_error in app.flashes('verify_email_error') %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="bi bi-exclamation-triangle me-2"></i>
+                    {{ flash_error }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+
+            <div class="card auth-card">
+                <div class="card-header py-3">
+                    <h4 class="mb-0">
+                        <i class="bi bi-person-plus me-2"></i>Registrarse
+                    </h4>
+                </div>
+                <div class="card-body p-4">
+                    {{ form_start(registrationForm, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+                        <div class="mb-3">
+                            {{ form_label(registrationForm.name, 'Nombre completo', {'label_attr': {'class': 'form-label'}}) }}
+                            {{ form_widget(registrationForm.name, {'attr': {'class': 'form-control', 'placeholder': 'Ingrese su nombre completo'}}) }}
+                            <div class="invalid-feedback">
+                                {{ form_errors(registrationForm.name) }}
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form_label(registrationForm.email, 'Correo electrónico', {'label_attr': {'class': 'form-label'}}) }}
+                            {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control', 'placeholder': 'Ingrese su correo electrónico'}}) }}
+                            <div class="invalid-feedback">
+                                {{ form_errors(registrationForm.email) }}
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            {{ form_label(registrationForm.plainPassword, 'Contraseña', {'label_attr': {'class': 'form-label'}}) }}
+                            {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control', 'placeholder': 'Ingrese su contraseña'}}) }}
+                            <div class="invalid-feedback">
+                                {{ form_errors(registrationForm.plainPassword) }}
+                            </div>
+                            <small class="text-muted">Debe tener al menos 6 caracteres.</small>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="form-check">
+                                {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
+                                {{ form_label(registrationForm.agreeTerms, 'Acepto los términos y condiciones', {'label_attr': {'class': 'form-check-label'}}) }}
+                            </div>
+                            <div class="invalid-feedback d-block">
+                                {{ form_errors(registrationForm.agreeTerms) }}
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="bi bi-check-lg me-2"></i>Registrarse
+                            </button>
+                        </div>
+                    {{ form_end(registrationForm) }}
+                </div>
+                
+            </div>
+            
+            
+        </div>
+    </div>
+{% endblock %}

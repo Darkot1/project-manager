@@ -19,4 +19,56 @@
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
+.hero-section {
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    color: white;
+    padding: 80px 0;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+.btn-outline-light:hover {
+    color: #3498db;
+}
+
+.navbar-custom {
+    background-color: #3498db;
+}
+.auth-card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    border: none;
+}
+.auth-card .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eaecef;
+}
+.form-control:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+}
+.btn-primary {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+.btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+.form-check-input:checked {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.navbar-custom {
+    background-color: #3498db;
+}
+.auth-card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    border: none;
+}
+.auth-card .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eaecef;
+}
         
