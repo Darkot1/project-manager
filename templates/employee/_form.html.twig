@@ -1,0 +1,79 @@
+{{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Nombre'}}) }}
+                        {{ form_label(form.name, 'Nombre') }}
+                        <div class="invalid-feedback">
+                            {{ form_errors(form.name) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
+                        {{ form_label(form.email, 'Email') }}
+                        <div class="invalid-feedback">
+                            {{ form_errors(form.email) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-floating mb-3">
+                {{ form_widget(form.position, {'attr': {'class': 'form-control', 'placeholder': 'Puesto'}}) }}
+                {{ form_label(form.position, 'Puesto') }}
+                <div class="invalid-feedback">
+                    {{ form_errors(form.position) }}
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                {{ form_label(form.projects, 'Proyectos', {'label_attr': {'class': 'form-label'}}) }}
+                <div class="select-container">
+                    {{ form_widget(form.projects, {
+                        'attr': {
+                            'class': 'form-select ',
+                            'size': '3'
+                        }
+                    }) }}
+                </div>
+                <div class="invalid-feedback">
+                    {{ form_errors(form.projects) }}
+                </div>
+                <small class="form-text text-muted">Puede seleccionar múltiples proyectos</small>
+            </div>
+
+            {{ form_rest(form) }}
+        </div>
+        <div class="card-footer text-end">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-save me-1"></i> {{ button_label|default('Guardar') }}
+            </button>
+        </div>
+    </div>
+{{ form_end(form) }}
+
+<style>
+    .select-container {
+        position: relative;
+        max-height: 120px;
+    }
+    
+    .compact-select {
+        height: auto !important;
+        max-height: 120px !important;
+        overflow-y: auto !important;
+    }
+    
+    /* Estilos adicionales para mejorar la apariencia */
+    .compact-select option {
+        padding: 6px 10px;
+    }
+    
+    .compact-select option:hover {
+        background-color: #f8f9fa;
+    }
+</style>
