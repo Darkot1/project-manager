@@ -17,8 +17,10 @@ final class EmployeeController extends AbstractController
     #[Route(name: 'app_employee_index', methods: ['GET'])]
     public function index(EmployeeRepository $employeeRepository): Response
     {
+        $employees = $employeeRepository->findAll();
+
         return $this->render('employee/index.html.twig', [
-            'employees' => $employeeRepository->findAll(),
+            'employees' => $employees,
         ]);
     }
 
@@ -32,6 +34,8 @@ final class EmployeeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($employee);
             $entityManager->flush();
+
+            $this->addFlash('success', 'Empleado creado con éxito.');
 
             return $this->redirectToRoute('app_employee_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -59,6 +63,8 @@ final class EmployeeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
+            $this->addFlash('success', 'Empleado editado con éxito.');
+
             return $this->redirectToRoute('app_employee_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -76,6 +82,8 @@ final class EmployeeController extends AbstractController
             $entityManager->flush();
         }
 
+        $this->addFlash('success', 'Empleado eliminado con éxito.');
+        
         return $this->redirectToRoute('app_employee_index', [], Response::HTTP_SEE_OTHER);
     }
 }

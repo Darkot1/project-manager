@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar Proyecto{% endblock %}
+
+{% block body %}
+    <h1>Editar Proyecto</h1>
+
+    {{ include('project/_form.html.twig', {'button_label': 'Actualizar'}) }}
+
+    <div class="mt-4">
+        <a href="{{ path('app_project_index') }}" class="btn btn-outline-secondary me-2">
+            <i class="bi bi-arrow-left me-1"></i> Volver
+        </a>   
+    </div>
+    {{ include('project/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,70 @@
+{{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-12">
+                    <div class="form-floating mb-3">
+                        {{ form_widget(form.nameProject, {'attr': {'class': 'form-control', 'placeholder': 'Nombre del proyecto'}}) }}
+                        {{ form_label(form.nameProject, 'Nombre del proyecto') }}
+                        <div class="invalid-feedback">
+                            {{ form_errors(form.nameProject) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label">Fecha de inicio</label>
+                    {{ form_widget(form.startDate, {'attr': {'class': 'form-control'}}) }}
+                    <div class="invalid-feedback">
+                        {{ form_errors(form.startDate) }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Fecha de finalización</label>
+                    {{ form_widget(form.endDate, {'attr': {'class': 'form-control'}}) }}
+                    <div class="invalid-feedback">
+                        {{ form_errors(form.endDate) }}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-3">
+                <label class="form-label">seleccionar empleados</label>
+                <div class="select-container">
+                    {{ form_widget(form.Employees, {
+                        'attr': {
+                            'class': 'form-select compact-select',
+                            'size': '4'
+                        }
+                    }) }}
+                </div>
+                <div class="invalid-feedback">
+                    {{ form_errors(form.Employees) }}
+                </div>
+                <small class="form-text text-muted">Puede seleccionar múltiples empleados</small>
+            </div>
+
+            {{ form_rest(form) }}
+        </div>
+        <div class="card-footer text-end">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-save me-1"></i> {{ button_label|default('Guardar') }}
+            </button>
+        </div>
+    </div>
+{{ form_end(form) }}
+
+<style>
+    .select-container {
+        position: relative;
+        max-height: 120px;
+    }
+    
+    .compact-select {
+        height: auto !important;
+        max-height: 120px !important;
+        overflow-y: auto !important;
+    }
+</style>

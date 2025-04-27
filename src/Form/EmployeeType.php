@@ -59,6 +59,9 @@ class EmployeeType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Employee::class,
+            'csrf_protection' => true,
+            'csrf_field_name' => '_token',
+            'csrf_token_id' => 'employee_item',
         ]);
     }
 }

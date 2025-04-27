@@ -1,3 +1,22 @@
-body {
-    background-color: skyblue;
+
+.navbar-custom {
+    background-color: #3498db;
 }
+.btn-primary {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+.btn-danger {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+}
+.card {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.table-container {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+        

@@ -28,7 +28,7 @@
                     <td>{{ employee.id }}</td>
                     <td>{{ employee.name }}</td>
                     <td>{{ employee.email }}</td>
-                    <td>{{ employee.position }}</td>
+                    <td><span class="badge bg-info">{{ employee.position }}</span></td>
                     <td class="text-end">
                         <div class="btn-group btn-group-sm">
                             <a href="{{ path('app_employee_show', {'id': employee.id}) }}" class="btn btn-outline-primary">
