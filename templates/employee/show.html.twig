@@ -58,8 +58,8 @@
                         <ul class="list-group list-group-flush">
                             {% for project in employee.projects %}
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    {{ project.name|default('Proyecto #' ~ project.id) }}
-                                    <span class="badge bg-primary rounded-pill">{{ project.id }}</span>
+                                    {{ project.name|default('Proyecto - ' ~ project.nameProject) }}
+                                    <span class="badge bg-primary rounded-pill"> ID {{ project.id }}</span>
                                 </li>
                             {% endfor %}
                         </ul>
