@@ -1,0 +1,81 @@
+{% extends 'guest.html.twig' %}
+
+{% block title %}Iniciar sesión{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            {% if error %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="bi bi-exclamation-triangle me-2"></i>
+                    {{ error.messageKey|trans(error.messageData, 'security') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}
+
+            {% if app.user %}
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    <i class="bi bi-info-circle me-2"></i>
+                    Ya has iniciado sesión como <strong>{{ app.user.userIdentifier }}</strong>
+                    <div class="mt-2">
+                        <a href="{{ path('app_logout') }}" class="btn btn-sm btn-outline-secondary">Cerrar sesión</a>
+                        <a href="{{ path('app_employee_index') }}" class="btn btn-sm btn-primary">Ir al panel</a>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}
+
+            <div class="card auth-card">
+                <div class="card-header py-3">
+                    <h4 class="mb-0">
+                        <i class="bi bi-box-arrow-in-right me-2"></i>Iniciar sesión
+                    </h4>
+                </div>
+                <div class="card-body p-4">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Correo electrónico</label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="bi bi-envelope"></i>
+                                </span>
+                                <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" placeholder="Ingrese su correo electrónico" autocomplete="email" required autofocus>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="bi bi-lock"></i>
+                                </span>
+                                <input type="password" name="_password" id="password" class="form-control" placeholder="Ingrese su contraseña" autocomplete="current-password" required>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary btn-lg" type="submit">
+                                <i class="bi bi-box-arrow-in-right me-2"></i>Iniciar sesión
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center py-3">
+                    ¿No tienes una cuenta? <a href="{{ path('app_register') }}" class="text-decoration-none">Registrarse</a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="{{ path('app_home') }}" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left me-2"></i>Volver al inicio
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'guest.html.twig' %}
+
+{% block title %}Sistema de Gestión de Proyectos{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div class="hero-section text-center">
+        <div class="container py-5 my-5">
+            <h1 class="display-4 fw-bold mb-4">Sistema de Gestión de Proyectos</h1>
+            
+            {% if app.user %}
+                {# Mostrar botones para usuarios autenticados #}
+                <div>
+                    <a href="{{ path('app_employee_index') }}" class="btn btn-light btn-lg me-2">
+                        <i class="bi bi-people me-2"></i>Empleados
+                    </a>
+                    <a href="{{ path('app_project_index') }}" class="btn btn-outline-light btn-lg">
+                        <i class="bi bi-kanban me-2"></i>Proyectos
+                    </a>
+                    <a href="{{ path('app_project_index') }}" class="btn btn-outline-light btn-lg">
+                        <i class="bi bi-graph-up me-1"></i>Auditoria
+                    </a>
+                </div>
+                <p class="mt-3 text-white">
+                    <i class="bi bi-person-check me-1"></i> Bienvenido/a, {{ app.user.name }}
+                </p>
+            {% else %}
+                {# Mostrar botones para visitantes #}
+                <div>
+                    <a href="{{ path('app_register') }}" class="btn btn-light btn-lg me-2">
+                        <i class="bi bi-person-plus me-2"></i>Registrarse
+                    </a>
+                    <a href="{{ path('app_login') }}" class="btn btn-outline-light btn-lg">
+                        <i class="bi bi-box-arrow-in-right me-2"></i>Iniciar sesión
+                    </a>
+                    
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
