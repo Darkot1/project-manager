@@ -22,3 +22,11 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    # Reemplazar el BlameableListener predeterminado con nuestra implementación personalizada
+    gedmo.listener.blameable:
+        class: App\EventListener\BlameableListener
+        arguments:
+            - '@security.token_storage'
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
