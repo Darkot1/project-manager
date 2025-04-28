@@ -56,7 +56,7 @@ php bin/console doctrine:migrations:migrate
 symfony server:start
 ```
 
-El sistema estará disponible en `http://localhost:8000`
+El sistema estará disponible en `http://127.0.0.1:8000`
 
 ## Características principales
 
