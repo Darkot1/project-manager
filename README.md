@@ -16,7 +16,7 @@ Sigue estos pasos para instalar y configurar el proyecto:
 ### 1. Clonar el repositorio
 
 ```bash
-git clone <https://github.com/Darkot1/project-manager>
+git clone https://github.com/Darkot1/project-manager
 cd project-manager
 ```
 
@@ -28,13 +28,13 @@ composer install
 
 ### 3. Configuración de la base de datos
 
-Crea un archivo `.env.local` en la raíz del proyecto y configura la URL de conexión a la base de datos MySQL:
+Crea un archivo `.env.local` en la raíz del proyecto de tomando como referencia el archivo `.env` y configura la URL de conexión a la base de datos MySQL:
 
 ```
-DATABASE_URL="mysql://usuario:contraseña@127.0.0.1:3306/nombre_de_la_base_de_datos?serverVersion=8.0.32&charset=utf8mb4"
+DATABASE_URL="mysql://usuario:contraseña@127.0.0.1:3306/database?serverVersion=8.0.32&charset=utf8mb4
 ```
 
-Reemplaza `usuario`, `contraseña` y `nombre_de_la_base_de_datos`.
+Reemplaza `usuario`, `contraseña` y `database` con tus credenciales de acceso a la base de datos.
 
 ### 4. Crear la base de datos
 
