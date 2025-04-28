@@ -107,7 +107,9 @@
                                                                     <tr>
                                                                         <td>{{ field }}</td>
                                                                         <td>
-                                                                            {% if value is iterable %}
+                                                                            {% if value.timestamp is defined %}
+                                                                                {{ value|date('d/m/Y H:i:s') }}
+                                                                            {% elseif value is iterable %}
                                                                                 {{ value|json_encode }}
                                                                             {% else %}
                                                                                 {{ value }}
